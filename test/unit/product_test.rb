@@ -37,6 +37,13 @@ class ProductTest < ActiveSupport::TestCase
 		      :image_url => image_url)
   end
 
+  def new_product_t(title)
+	  Product.new(:title  => title,
+		      :description => "yyy",
+		      :price => 1,
+		      :image_url => "123.jpg")
+  end
+
   test "image url" do
 	ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg
 		  http://a.b.c/x/y/z/fred.gif }
@@ -49,6 +56,16 @@ class ProductTest < ActiveSupport::TestCase
 	end
   end
 
+  test "title length" do
+	  ok =%w{abcdefghijklmno lkngfklnfgklnlktyn lktgnhlkrntlkhrntknhkln lknhlkngtklnrklnbklrbmb nbvnbzvncbvznbcvjhbshjeflqefjbc}
+	  bad =%w{ab cd ef lknkl lknfgb mbmnbx mxcbvmnxc kjngfkjn weqwe 23123}
+	  ok.each do |name|
+		assert new_product_t(name).valid?, "#{name} shouldn't be invalid"
+	  end
+	  bad.each do |name|
+		assert new_product_t(name).invalid?, "#{name} shouldn't be valid"
+	  end
+  end
 
   test "product is not valid without a unique title - i18n" do
   	product = Product.new(:title => products(:ruby).title,
