@@ -1,5 +1,6 @@
 /* Global styles */
 
+
 #store #notice {
         color: #000;
         border: 2px solid red;
@@ -147,3 +148,8 @@
 	font-size: small;
 }
 
+#columns #side #DT{
+	color: #bfb;
+	font-size: small;
+
+}
