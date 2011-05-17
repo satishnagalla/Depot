@@ -157,4 +157,9 @@
 #store .entry form, #store .entry form div {
   display: inline;
 }
-
+#store #count {
+  display: inline;
+  float: right;
+  color: #226;
+  font-size: small;
+}
