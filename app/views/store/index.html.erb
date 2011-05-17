@@ -3,9 +3,6 @@
 <% if notice %>
   <p id="notice" ><%= notice %></p>
 <% end %>
-<div id = "count">
-  Visits:<%= session[:counter] %>
-</div>
 <h1>Your Pragmatic Catalog</h1>
 <% @products.each do |product| %>
   <div class="entry" >
