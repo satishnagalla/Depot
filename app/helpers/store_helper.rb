@@ -1,5 +1,5 @@
 module StoreHelper
   def count
-    session[:counter]
+    session[:counter].to_i
   end
 end
