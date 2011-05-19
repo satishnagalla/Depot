@@ -83,7 +83,7 @@ class CartsController < ApplicationController
 
     respond_to do |format|
 #      format.html { redirect_to(carts_url) }
-      format.html { redirect_to(store_url,:notice => 'Your cart is currently empty') }
+      format.html { redirect_to(store_url) }
       format.xml  { head :ok }
     end
   end
